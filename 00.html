@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Heiti TC', 'Microsoft JhengHei';
+      box-sizing: border-box;
+    }
+
+    #lightBox {
+      background-color: rgba(0, 0, 0, .6);
+      width: 100%;
+      height: 100vh;
+      margin: 0 auto;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      text-align: center;
+      padding-top: 100px;
+      display: none;
+    }
+
+    #lightBox div {
+      background-color: #fff;
+      width: 40%;
+      height: 200px;
+      margin: 0 auto;
+      padding-top: 20px;
+    }
+
+    #lightBox li {
+      list-style: none;
+      font-size: 1.6em;
+      margin-bottom: 40px;
+    }
+
+    .inputArea {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+    }
+
+    .inputArea img {
+      width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .inputArea input {
+      margin-bottom: 30px;
+      width: 408px;
+      padding: 10px 20px;
+      outline: none;
+      border: 1px darkblue solid;
+      color: rgb(104, 104, 243);
+      font-size: 2em;
+    }
+
+    .inputArea button {
+      padding: 6px 16px;
+      background-color: #000;
+      color: #fff;
+      outline: none;
+      transition: .3s;
+      border: 1px solid #fff;
+    }
+
+    .inputArea button:hover {
+      color: #000;
+      transition: .3s;
+      background-color: #fff;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="lightBox">
+    <div>
+      <li id="name"></li>
+      <li id="status"></li>
+      <li id="amount"></li>
+      <li id="time"></li>
+    </div>
+  </div>
+  <div class="inputArea">
+    <img src="https://firebasestorage.googleapis.com/v0/b/hexschool-api.appspot.com/o/blog%2F2018%2F05%2FTheF2E_banner.png?alt=media&token=4e663e89-554e-4bed-83ac-000fddabd8ab">
+    <h1>輸入您的電子郵件, 確認您是否報名成功吧</h1>
+    <input type="text" id="mail">
+    <button id="submitBtn">送出</button>
+    <button id="getAmount">取得報名人數</button>
+  </div>
+
+
+  <script>
+    window.addEventListener('load', () => {
+      let submit = document.querySelector('#submitBtn')
+      let mail = document.querySelector('#mail')
+      let lightbox = document.querySelector('#lightBox')
+      let status = document.querySelector('#status')
+      let name = document.querySelector('#name')
+      let time = document.querySelector('#time')
+      let getAmount = document.querySelector('#getAmount')
+      let amount = document.querySelector('#amount')
+
+      submit.addEventListener('click', () => {
+        if (mail.value === '') {
+          return;
+        }
+        console.log(mail.value);
+
+        axios.post('https://www.thef2e.com/api/isSignUp', {
+          "email": mail.value
+        })
+          .then(function (res) {
+            console.log(res.data);
+            lightbox.style.display = 'block'
+            if (res.data.success) {
+              status.innerHTML = res.data.message
+              name.innerHTML = res.data.nickName
+              time.innerHTML = new Date(res.data.timeStamp)
+            } else {
+              status.innerHTML = res.data.message
+            }
+          })
+          .catch(function (err) {
+            console.log(err);
+          })
+      })
+
+      getAmount.addEventListener('click', () => {
+        axios.get('https://www.thef2e.com/api/signUpTotal')
+          .then(function (res) {
+            lightbox.style.display = 'block'
+            amount.innerHTML = `現在報名人數: ${res.data.total} 人`
+          })
+          .catch(function (err) {
+            console.log(err);
+          })
+      })
+
+      lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none'
+      })
+    })
+
+  </script>
+</body>
+
+</html>
