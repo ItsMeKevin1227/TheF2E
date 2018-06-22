@@ -123,54 +123,30 @@ export default {
           label: 'Monthly',
         },
       ],
-      filterDate: 'Weekly',
+      filterDate: 'Monthly',
       // 日期範圍
       selectDate: 6,
       // 假資料
-      totalRevenue: 0,
-      totalCost: 0,
-      totalRevenueWeek: 0,
-      totalCostWeek: 0,
       fakeRevenue: [],
       fakeCost: [],
       fakeIncome: [],
       fakeDate: [],
+      totalRevenue: 0,
+      totalCost: 0,
+      totalRevenueWeek: 0,
+      totalCostWeek: 0,
       // 圖表
       chartData: {
-        columns: ['日期', 'TOTAL REVENUE', 'TOTAL COST', 'NET INCOME'],
-        rows: [
-          {
-            日期: '6 JUN', 'TOTAL REVENUE': 1393, 'TOTAL COST': 1093, 'NET INCOME': 0.32,
-          },
-          {
-            日期: '7 JUN', 'TOTAL REVENUE': 3530, 'TOTAL COST': 3230, 'NET INCOME': 0.26,
-          },
-          {
-            日期: '8 JUN', 'TOTAL REVENUE': 2923, 'TOTAL COST': 2623, 'NET INCOME': 0.76,
-          },
-          {
-            日期: '9 JUN', 'TOTAL REVENUE': 1723, 'TOTAL COST': 1423, 'NET INCOME': 0.49,
-          },
-          {
-            日期: '10 JUN', 'TOTAL REVENUE': 3792, 'TOTAL COST': 3492, 'NET INCOME': 0.323,
-          },
-          {
-            日期: '11 JUN', 'TOTAL REVENUE': 4593, 'TOTAL COST': 4293, 'NET INCOME': 0.78,
-          },
-          {
-            日期: '12 JUN', 'TOTAL REVENUE': 4593, 'TOTAL COST': 4293, 'NET INCOME': 0.78,
-          },
-          {
-            日期: '13 JUN', 'TOTAL REVENUE': 4593, 'TOTAL COST': 4293, 'NET INCOME': 0.78,
-          },
-        ],
+        columns: ['Date', 'TOTAL REVENUE', 'TOTAL COST', 'NET INCOME'],
+        rows: [],
       },
+      tempObj: {},
     };
   },
   created() {
     for (let i = 0; i <= 30; i += 1) {
-      const random1 = _.random(3000, 8000);
-      const random2 = _.random(100, 3000);
+      const random1 = _.random(5000, 8000);
+      const random2 = _.random(2000, 6000);
       this.totalRevenue += random1;
       this.totalCost += random2;
       if (i <= 6) {
@@ -181,6 +157,13 @@ export default {
       this.fakeCost.push(random2);
       this.fakeIncome.push(random1 - random2);
       this.fakeDate.push(this.$moment().subtract(30 - i, 'days').format('DD MMM'));
+      this.tempObj = {
+        Date: this.fakeDate[i],
+        'TOTAL REVENUE': this.fakeRevenue[i],
+        'TOTAL COST': this.fakeCost[i],
+        'NET INCOME': this.fakeIncome[i],
+      };
+      this.chartData.rows.push(this.tempObj);
     }
   },
   computed: {
