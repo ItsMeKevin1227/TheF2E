@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../04ProductGall/css/index.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}

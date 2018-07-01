@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAMA,AAAA,CAAC,AAAC,CACA,UAAU,CAAE,UAAU,CACvB,AACD,AAAA,CAAC,AAAC,CACA,eAAe,CAAE,IAAI,CACtB",
+    "sources": [
+        "../02Filter/static/styles/settings.scss"
+    ],
+    "names": [],
+    "file": "settings.css"
+}
