@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../03AdminOrder/public/config.scss"
-    ],
-    "names": [],
-    "file": "config.css"
-}
