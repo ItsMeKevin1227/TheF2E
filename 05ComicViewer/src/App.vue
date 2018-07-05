@@ -1,30 +1,22 @@
 <template>
   <div id="app">
-    <Header/>
-    <AD :adNumber="1" />
-    <ComicCover/>
-    <AD :adNumber="2" />
-    <ComicChapter/>
-    <AD :adNumber="3" />
+    <HeaderPage />
+    <router-view/>
   </div>
 </template>
-
 <script>
-import Header from './views/Header.vue';
-import AD from './views/AD.vue';
-import ComicCover from './views/ComicCover.vue';
-import ComicChapter from './views/ComicChapter.vue';
+import HeaderPage from '@/components/HeaderPage/HeaderPage.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    Header, AD, ComicCover, ComicChapter,
+    HeaderPage,
   },
 };
 </script>
 
 <style lang="scss">
-@import '../public/style.scss';
+@import '@/assets/style.scss';
 html,
 body {
   margin: 0;

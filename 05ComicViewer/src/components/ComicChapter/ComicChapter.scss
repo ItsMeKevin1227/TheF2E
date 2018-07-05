@@ -1,24 +1,4 @@
-<template>
-  <div id="ComicChapter">
-    <h3>All Chapters</h3>
-    <div id="chapterChoose">
-      <li v-for="(item,idx) in chapters"
-          :key="idx">Chapter {{idx+1}}: {{item}}</li>
-    </div>
-  </div>
-</template>
-<script>
-export default {
-  data() {
-    return {
-      chapters: ['The F2E Challenge Start!', 'Todo List is Going Crazy!'],
-    };
-  },
-};
-</script>
-
-<style lang="scss">
-@import '../../public/style.scss';
+@import '@/assets/style.scss';
 #ComicChapter {
   width: 620px;
   margin: 0 auto;
@@ -76,4 +56,3 @@ export default {
     }
   }
 }
-</style>

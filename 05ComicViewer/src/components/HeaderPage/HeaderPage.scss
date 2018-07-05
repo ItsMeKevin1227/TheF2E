@@ -1,9 +1,5 @@
-<template>
-  <div id="header">Comicomic</div>
-</template>
-<style lang="scss">
-@import '../../public/style.scss';
-#header {
+@import '@/assets/style.scss';
+#HeaderPage{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,4 +13,3 @@
   color: $green;
   background-color: #000;
 }
-</style>
