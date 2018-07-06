@@ -1,10 +1,21 @@
 <div id="ComicPage">
-  <div :style="{ 'backgroundImage': `url('${comicPage}')` }">
-    <div @click="pageChange(-1)">
+  <div class="comicView" @click="fullScreen = true" :style="{ 'backgroundImage': `url('${comicPage}')` }">
+    <div class="pageSwitch" @click="pageChange(-1)">
       <i class="fas fa-angle-left"></i>
     </div>
-    <div @click="pageChange(1)">
+    <div class="pageSwitch" @click="pageChange(1)">
       <i class="fas fa-angle-right"></i>
+    </div>
+  </div>
+  <div v-if="fullScreen" class="lightBox" @click="fullScreen = false">
+    <div class="comicViewFull" :style="{ 'backgroundImage': `url('${comicPage}')` }">
+      <i class="far fa-times-circle" @click="fullScreen = false"></i>
+      <div class="pageSwitch pageSwitchFull pageLeft" @click="pageChange(-1)">
+        <i class="fas fa-angle-left"></i>
+      </div>
+      <div class="pageSwitch pageSwitchFull" @click="pageChange(1)">
+        <i class="fas fa-angle-right"></i>
+      </div>
     </div>
   </div>
 </div>

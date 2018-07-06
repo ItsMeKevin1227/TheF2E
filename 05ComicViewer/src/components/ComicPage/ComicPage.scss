@@ -5,12 +5,14 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  > div {
+  width: 100%;
+  .comicView {
     width: 620px;
     height: 930px;
     background-size: contain;
     position: relative;
-    > div {
+    cursor: pointer;
+    .pageSwitch {
       width: 80px;
       position: absolute;
       height: 100%;
@@ -33,5 +35,55 @@
         right: -80px;
       }
     }
+  }
+  .lightBox {
+    background-color: $b8;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .comicViewFull {
+    width: 90%;
+    height: 90%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: fixed;
+    z-index: 10;
+    top: 5%;
+    left: 5%;
+    .fa-times-circle {
+      position: absolute;
+      font-size: 20px;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    .pageSwitchFull {
+      width: 5%;
+      position: absolute;
+      height: 100%;
+      font-size: 80px;
+      // top: 50%;
+      // margin-top: -40px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      &:hover {
+        background-color: $primary;
+        color: #000000;
+      }
+      &:last-child {
+        right: -5%;
+      }
+    }
+  }
+  .pageLeft {
+    left: -5%;
   }
 }

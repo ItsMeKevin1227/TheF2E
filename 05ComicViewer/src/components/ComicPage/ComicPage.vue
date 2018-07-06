@@ -15,6 +15,11 @@ import Img12 from '@/assets/images/storyboard-12.png';
 export default {
   name: 'ComicPage',
   props: ['pageSelected'],
+  data() {
+    return {
+      fullScreen: false,
+    };
+  },
   computed: {
     pageCurrent: {
       get() {

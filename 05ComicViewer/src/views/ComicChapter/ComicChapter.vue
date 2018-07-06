@@ -29,4 +29,4 @@ export default {
 };
 </script>
 <template src="./ComicChapter.html"></template>
-<style lang="scss" src="./ComicChapter.scss"></style>
+<style lang="scss" src="./ComicChapter.scss" scoped></style>
