@@ -1,0 +1,37 @@
+@import '../../assets/style.scss';
+
+#ComicPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  > div {
+    width: 620px;
+    height: 930px;
+    background-size: contain;
+    position: relative;
+    > div {
+      width: 80px;
+      position: absolute;
+      height: 100%;
+      font-size: 80px;
+      // top: 50%;
+      // margin-top: -40px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $b1;
+      &:hover {
+        background-color: #000000;
+        color: $primary;
+      }
+      &:first-child {
+        left: -80px;
+      }
+      &:last-child {
+        right: -80px;
+      }
+    }
+  }
+}

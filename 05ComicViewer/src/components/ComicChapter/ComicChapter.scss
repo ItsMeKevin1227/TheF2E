@@ -1,4 +1,5 @@
-@import '@/assets/style.scss';
+@import '../../assets/style.scss';
+
 #ComicChapter {
   width: 620px;
   margin: 0 auto;
@@ -19,29 +20,26 @@
     box-sizing: border-box;
     padding: 22px 0;
     background-color: #fff;
-    li {
-      list-style: none;
-      font-weight: 900;
-      font-size: $fz4;
-      padding: 8px 24px;
-      cursor: pointer;
-      &:hover {
+    a {
+      text-decoration: none;
+      color: #000;
+      li {
+        list-style: none;
+        font-weight: 900;
+        font-size: $fz4;
+        padding: 8px 24px;
+        cursor: pointer;
+      }
+      &:hover li {
         background-color: #000;
         color: #fff;
         &:last-child {
           &::after {
-            content: 'NEW';
-            display: inline-block;
-            text-align: center;
-            margin-left: 16px;
-            width: 55px;
-            height: 18px;
-            background-color: $green;
             color: #000;
           }
         }
       }
-      &:last-child {
+      &:last-child li {
         margin-bottom: 0;
         &::after {
           content: 'NEW';
@@ -50,7 +48,8 @@
           margin-left: 16px;
           width: 55px;
           height: 18px;
-          background-color: $green;
+          background-color: $primary;
+          line-height: 18px;
         }
       }
     }

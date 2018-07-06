@@ -1,0 +1,29 @@
+<div id="ChapterSelect">
+  <h2>My Hexschool</h2>
+  <i class="fas fa-caret-right"></i>
+  <div class="selectPanel" @click="selectChapter = !selectChapter">
+    Chapter {{ chapterSelected }}
+    <i class="fas fa-sort"></i>
+    <div v-if="selectChapter">
+      <router-link v-for="(item,index) in 2" :to="`${index+1}`">
+        <li>
+          Chapter {{ item }}
+        </li>
+      </router-link>
+    </div>
+  </div>
+  <div class="selectPanel" @click="selectPage = !selectPage">
+    Page {{ pageCurrent }}
+    <i class="fas fa-sort"></i>
+    <div v-if="selectPage">
+      <li v-for="(item,index) in 12" @click="pageCurrent = item">Page {{ item }}</li>
+    </div>
+  </div>
+  <div class="dayNightSwitch">
+    <i class="fas fa-sun"></i>
+    <div>
+      <span></span>
+    </div>
+    <i class="far fa-moon"></i>
+  </div>
+</div>

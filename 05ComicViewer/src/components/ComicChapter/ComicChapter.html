@@ -1,6 +1,9 @@
 <div id="ComicChapter">
   <h3>All Chapters</h3>
   <div id="chapterChoose">
-    <li v-for="(item,idx) in chapters" :key="idx">Chapter {{idx+1}}: {{item}}</li>
+    <router-link v-for="(item,idx) in chapters" :key="idx" :to="`comics/chapter/${idx+1}`">
+      <li>Chapter {{idx+1}}: {{item}}</li>
+    </router-link>
+
   </div>
 </div>

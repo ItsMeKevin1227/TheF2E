@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import HomePage from '@/views/HomePage/HomePage.vue';
+import ComicChapter from '@/views/ComicChapter/ComicChapter.vue';
 
 Vue.use(Router);
 
@@ -8,12 +10,12 @@ export default new Router({
     {
       path: '/comics',
       name: 'Comic',
-      component: () => import('@/views/HomePage/HomePage.vue'),
+      component: HomePage,
     },
     {
       path: '/comics/chapter/:id',
       name: 'ComicChapter',
-      component: () => import('@/views/ComicChapter/ComicChapter.vue'),
+      component: ComicChapter,
     },
     {
       path: '*',

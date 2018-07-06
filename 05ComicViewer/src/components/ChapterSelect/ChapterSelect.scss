@@ -1,0 +1,95 @@
+@import '../../assets/style.scss';
+
+#ChapterSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    font-size: $fz3;
+    line-height: 1;
+    font-weight: 700;
+  }
+  .fa-caret-right {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .selectPanel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    width: 127px;
+    height: 35px;
+    box-sizing: border-box;
+    border: 2px solid #000;
+    font-weight: 700;
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    position: relative;
+    div {
+      position: absolute;
+      background-color: #fff;
+      border: #000 solid 3px;
+      top: 40px;
+      box-sizing: border-box;
+      width: 127px;
+      z-index: 2;
+      li {
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 700;
+        list-style: none;
+        font-size: $fz4;
+        &:hover {
+          background-color: #000;
+          color: #fff;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        li {
+          list-style: none;
+          font-weight: 900;
+          font-size: $fz4;
+          cursor: pointer;
+        }
+        &:hover li {
+          background-color: #000;
+          color: #fff;
+          &:last-child {
+            &::after {
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+  .dayNightSwitch {
+    margin-left: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    > div {
+      width: 48px;
+      height: 24px;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      margin-right: 8px;
+      margin-left: 8px;
+      cursor: pointer;
+      span {
+        width: 50%;
+        height: 100%;
+        display: block;
+        background-color: #000;
+      }
+    }
+    i {
+      font-size: $fz3;
+    }
+  }
+}

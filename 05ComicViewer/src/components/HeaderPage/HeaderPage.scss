@@ -1,5 +1,5 @@
-@import '@/assets/style.scss';
-#HeaderPage{
+@import '../../assets/style.scss';
+#HeaderPage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,6 @@
   font-weight: 700;
   font-size: $fz1;
   font-style: italic;
-  color: $green;
+  color: $primary;
   background-color: #000;
 }

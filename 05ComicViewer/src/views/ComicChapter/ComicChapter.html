@@ -1,3 +1,7 @@
 <div id="ComicChapter">
-  ComicChapter
+  <Ad :adNumber="1" />
+  <ChapterSelect :chapterSelected='id' :pageSelected='pageSelected' @newPage="onNewPage" />
+  <Ad :adNumber="2" />
+  <ComicPage :pageSelected='pageSelected' @pageChanged="onPageChanged" />
+  <Ad :adNumber="3" />
 </div>

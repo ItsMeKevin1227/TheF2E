@@ -1,7 +1,7 @@
 <script>
-import Img1 from '../../../public/images/ad-1.png';
-import Img2 from '../../../public/images/ad-2.png';
-import Img3 from '../../../public/images/ad-3.png';
+import Img1 from '@/assets/images/ad-1.png';
+import Img2 from '@/assets/images/ad-2.png';
+import Img3 from '@/assets/images/ad-3.png';
 
 export default {
   props: ['adNumber'],

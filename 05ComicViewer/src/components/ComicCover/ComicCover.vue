@@ -1,5 +1,5 @@
 <script>
-import cover from '../../../public/images/comicCover.png';
+import cover from '@/assets/images/comicCover.png';
 
 export default {
   name: 'ComicCover',
