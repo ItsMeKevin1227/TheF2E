@@ -1,5 +1,5 @@
 <template lang="pug">
- #Header
+#Header
   router-link(class="logo"
     :class="routeHome"
     to="/") Shoptime

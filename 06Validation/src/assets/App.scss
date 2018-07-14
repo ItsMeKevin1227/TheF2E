@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  &:before {
+    content: '';
+    display: block;
+    height: 8px;
+    background-color: $primary;
+    width: 456px;
+    margin: 0 auto;
+  }
+  .el-steps {
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+  #nextBtn {
+    width: 460px;
+    height: 52px;
+    display: block;
+    margin: 0 auto;
+  }
+}

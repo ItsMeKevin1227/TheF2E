@@ -1,0 +1,141 @@
+<div id="PaymentMethod">
+  <h1 class="title">Payment Method
+    <small class="subTitle">Add your credit card information!</small>
+  </h1>
+  <div class="flexBox">
+    <div class="row12">
+      <div class="inputContainer">
+        <label class="form"
+               for="card">
+          Card Number
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('card')}"
+                  v-model="card"
+                  id="card"
+                  v-validate="'credit_card|required'"
+                  name="card"
+                  @change="bankCardKeyup"
+                  placeholder="1234 5678 9012 3456"
+                  clearable></el-input>
+        <span class="tooltip"
+              v-show="errors.has('card')"
+              v-cloak>
+          {{ errors.first('card') }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="flexBox">
+    <div class="row6">
+      <div class="inputContainer">
+        <label class="form"
+               for="cardName">
+          Cardholder Name
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('cardName')}"
+                  v-model="cardName"
+                  id="cardName"
+                  v-validate="'required|alpha_spaces'"
+                  name="cardName"
+                  @change="error"
+                  placeholder="EXAMPLE NAME"
+                  clearable></el-input>
+        <span class="tooltip mt0"
+              v-show="errors.has('cardName')"
+              v-cloak>
+          {{ errors.first('cardName') }}
+        </span>
+      </div>
+    </div>
+    <div class="row6">
+      <div class="inputContainer">
+        <label class="form"
+               for="bankName">
+          Bank Name
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('bankName')}"
+                  v-model="bankName"
+                  id="bankName"
+                  v-validate="'required|alpha_spaces'"
+                  name="bankName"
+                  @change="error"
+                  placeholder="EXAMPLE BANK"
+                  clearable></el-input>
+        <span class="tooltip"
+              v-show="errors.has('bankName')"
+              v-cloak>
+          {{ errors.first('bankName') }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="flexBox">
+    <div class="row4">
+      <div class="inputContainer">
+        <label class="form"
+               for="cvv">
+          CVV
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('cvv')}"
+                  v-model="cvv"
+                  id="cvv"
+                  v-validate="'required|numeric|length:3'"
+                  name="cvv"
+                  @change="error"
+                  placeholder="123"
+                  clearable></el-input>
+        <span class="tooltip"
+              v-show="errors.has('cvv')"
+              v-cloak>
+          {{ errors.first('cvv') }}
+        </span>
+      </div>
+    </div>
+    <div class="row4">
+      <div class="inputContainer">
+        <label class="form"
+               for="expireDate">
+          Expire Date
+        </label>
+        <el-select :class="{'textInput': true, 'warning': errors.has('cardYear')}"
+                   v-model="cardYear"
+                   v-validate="'required'"
+                   name="cardYear"
+                   @change="error"
+                   placeholder="YY">
+          <el-option v-for="(item, idx) in yearArr"
+                     :key="idx"
+                     :label="item"
+                     :value="item">
+          </el-option>
+        </el-select>
+        <span class="tooltip"
+              v-show="errors.has('cardYear')"
+              v-cloak>
+          {{ errors.first('cardYear') }}
+        </span>
+      </div>
+    </div>
+    <div class="row4">
+      <div class="inputContainer">
+        <el-select :class="{'textInput': true, 'warning': errors.has('cardMonth')}"
+                   v-model="cardMonth"
+                   v-validate="'required'"
+                   name="cardMonth"
+                   @change="error"
+                   placeholder="MM">
+          <el-option v-for="(item, idx) in 12"
+                     :key="idx"
+                     :label="item"
+                     :value="item">
+          </el-option>
+        </el-select>
+        <span class="tooltip"
+              v-show="errors.has('cardMonth')"
+              v-cloak>
+          {{ errors.first('cardMonth') }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

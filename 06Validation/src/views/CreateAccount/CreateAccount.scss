@@ -1,0 +1,19 @@
+@import '../../assets/style.scss';
+@import '../../assets/basic.scss';
+#CreateAccount {
+  width: 460px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+    small {
+      display: block;
+    }
+  }
+  .textInput {
+    margin-bottom: 24px;
+    position: relative;
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+}

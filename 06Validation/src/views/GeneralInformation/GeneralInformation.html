@@ -1,0 +1,129 @@
+<div id="GeneralInformation">
+  <h1 class="title">General Information
+    <small class="subTitle">Tell us who you are!</small>
+  </h1>
+  <div class="flexBox">
+    <div class="row6">
+      <div class="inputContainer">
+        <label class="form"
+               for="name">Name
+          <span class="label">(optional)</span>
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('name')}"
+                  v-model="name"
+                  id="name"
+                  v-validate="'alpha_spaces'"
+                  name="name"
+                  @change="error"
+                  placeholder="Example Name"
+                  clearable></el-input>
+        <span class="tooltip mt0"
+              v-show="errors.has('name')"
+              v-cloak>
+          {{ errors.first('name') }}
+        </span>
+      </div>
+    </div>
+    <div class="row6">
+      <div class="inputContainer">
+        <label class="form"
+               for="phone">
+          Phone*
+        </label>
+        <el-input :class="{'textInput': true, 'warning': errors.has('phone')}"
+                  v-model="phone"
+                  id="phone"
+                  v-validate="'required|numeric|length:10'"
+                  name="phone"
+                  @change="error"
+                  placeholder="0912 345 678"
+                  clearable></el-input>
+        <span class="tooltip mt0"
+              v-show="errors.has('phone')"
+              v-cloak>
+          {{ errors.first('phone') }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="flexBox">
+    <div class="row12">
+      <label class="form"
+             for="year">
+        Birth Date
+        <span class="label">(optional)</span>
+      </label>
+      <el-date-picker class="textInput"
+                      v-model="day"
+                      @change="error"
+                      format="yyyy-MM-dd"
+                      placeholder="YYYY-MM-DD"></el-date-picker>
+    </div>
+  </div>
+  <div class="flexBox mb40">
+    <div class="row6">
+      <div class="inputContainer">
+        <label class="form"
+               for="city">
+          Address*
+        </label>
+        <el-select :class="{'textInput': true, 'warning': errors.has('city')}"
+                   v-model="city"
+                   v-validate="'required'"
+                   name="city"
+                   @change="error"
+                   placeholder="City">
+          <el-option v-for="(item, idx) in cities"
+                     :key="idx"
+                     :label="item.name"
+                     :value="idx">
+          </el-option>
+        </el-select>
+        <span class="tooltip"
+              v-show="errors.has('city')"
+              v-cloak>
+          {{ errors.first('city') }}
+        </span>
+      </div>
+    </div>
+    <div class="row6">
+      <div class="inputContainer">
+        <el-select :class="{'textInput': true, 'warning': errors.has('dist')}"
+                   v-model="dist"
+                   v-validate="'required'"
+                   name="dist"
+                   @change="error"
+                   placeholder="dist">
+          <el-option v-for="(item, idx) in areas"
+                     :key="idx"
+                     :label="item.name"
+                     :value="idx">
+          </el-option>
+        </el-select>
+        <span class="tooltip"
+              v-show="errors.has('dist')"
+              v-cloak>
+          {{ errors.first('dist') }}
+        </span>
+      </div>
+    </div>
+    <div class="row12 mt24">
+      <div class="inputContainer">
+        <el-input :class="{'textInput': true, 'warning': errors.has('address')}"
+                  v-model="address"
+                  v-validate="'required'"
+                  name="address"
+                  @change="error"
+                  placeholder="Address Detail"
+                  clearable></el-input>
+        <span class="tooltip"
+              v-show="errors.has('address')"
+              v-cloak>
+          {{ errors.first('address') }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+</div>

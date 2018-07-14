@@ -1,0 +1,56 @@
+<div id="CreateAccount">
+  <h1 class="title">Create Account
+    <small class="subTitle">Glad to see you here!</small>
+  </h1>
+  <div class="inputContainer">
+    <label class="form"
+           for="account">Account</label>
+    <el-input :class="{'textInput': true, 'warning': errors.has('email') }"
+              v-model="account"
+              v-validate="'required|email'"
+              name="email"
+              @change="error"
+              id="account"
+              placeholder="example@email.com"
+              clearable></el-input>
+    <span class="tooltip"
+          v-show="errors.has('email')"
+          v-cloak>
+      {{ errors.first('email') }}
+    </span>
+  </div>
+  <div class="inputContainer">
+    <label class="form"
+           for="password">Password</label>
+    <el-input :class="{'textInput': true, 'warning': errors.has('password') }"
+              v-model="password"
+              v-validate="{required:true,min:8,alpha_num:true}"
+              name="password"
+              @change="error"
+              id="password"
+              placeholder="●●●●●●●●"
+              clearable></el-input>
+    <span class="tooltip"
+          v-show="errors.has('password')"
+          v-cloak>
+      {{ errors.first('password') }}
+    </span>
+  </div>
+  <div class="inputContainer">
+    <label class="form"
+           for="confirmPsw">Confirm Password</label>
+    <el-input :class="{'textInput': true, 'warning': errors.has('confirmPsw') }"
+              v-model="confirmPassword"
+              v-validate="{required:true,confirmed:password,alpha_num:true}"
+              name="confirmPsw"
+              @change="error"
+              id="confirmPsw"
+              placeholder="●●●●●●●●"
+              clearable></el-input>
+    <span class="tooltip"
+          v-show="errors.has('confirmPsw')"
+          v-cloak>
+      {{ errors.first('confirmPsw') }}
+    </span>
+  </div>
+</div>

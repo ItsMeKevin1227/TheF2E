@@ -12,28 +12,28 @@
     background-size: contain;
     position: relative;
     cursor: pointer;
-    .pageSwitch {
-      width: 80px;
-      position: absolute;
-      height: 100%;
-      font-size: 80px;
-      // top: 50%;
-      // margin-top: -40px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $b1;
-      &:hover {
-        background-color: #000000;
-        color: $primary;
-      }
-      &:first-child {
-        left: -80px;
-      }
-      &:last-child {
-        right: -80px;
-      }
+  }
+  .pageSwitch {
+    width: 80px;
+    position: absolute;
+    height: 100%;
+    font-size: 80px;
+    // top: 50%;
+    // margin-top: -40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $b1;
+    &:hover {
+      background-color: #000000;
+      color: $primary;
+    }
+    &:first-child {
+      left: -80px;
+    }
+    &:last-child {
+      right: -80px;
     }
   }
   .lightBox {
@@ -46,7 +46,7 @@
     cursor: pointer;
   }
   .comicViewFull {
-    width: 90%;
+    width: 80%;
     height: 90%;
     background-size: contain;
     background-repeat: no-repeat;
@@ -54,36 +54,41 @@
     position: fixed;
     z-index: 10;
     top: 5%;
-    left: 5%;
+    left: 10%;
     .fa-times-circle {
       position: absolute;
       font-size: 20px;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       cursor: pointer;
-    }
-    .pageSwitchFull {
-      width: 5%;
-      position: absolute;
-      height: 100%;
-      font-size: 80px;
-      // top: 50%;
-      // margin-top: -40px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       color: #fff;
       &:hover {
-        background-color: $primary;
-        color: #000000;
-      }
-      &:last-child {
-        right: -5%;
+        color: $primary;
       }
     }
   }
-  .pageLeft {
-    left: -5%;
+  .pageSwitchFull {
+    width: 60px;
+    position: absolute;
+    height: 100%;
+    font-size: 80px;
+    top: 0;
+    // top: 50%;
+    // margin-top: -40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    &:hover {
+      background-color: $primary;
+      color: #000000;
+    }
+    &:first-child {
+      left: 0;
+    }
+    &:last-child {
+      right: 15px;
+    }
   }
 }
