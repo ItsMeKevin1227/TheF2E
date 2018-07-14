@@ -10,12 +10,21 @@
       <el-step></el-step>
     </el-steps>
     <router-view @error="errorChild" />
-    <router-link :to="link"
-                 v-show="this.$route.name !== 'Congratulation'">
+    <template v-if="error">
       <el-button id="nextBtn"
                  class="form"
-                 :disabled="error">{{ btnText }}</el-button>
-    </router-link>
+                 disabled>{{ btnText }}
+      </el-button>
+    </template>
+    <template v-else>
+      <router-link :to="link"
+                   v-show="this.$route.name !== 'Congratulation'">
+        <el-button id="nextBtn"
+                   class="form"
+                   @click="error=true">{{ btnText }}
+        </el-button>
+      </router-link>
+    </template>
   </div>
 </template>
 <script>
