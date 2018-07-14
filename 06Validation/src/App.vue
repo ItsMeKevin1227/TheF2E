@@ -58,11 +58,6 @@ export default {
     },
   },
   methods: {
-    // next() {
-    //   this.active += 1;
-    //   if (this.active > 4) this.active = 0;
-    //   console.log(this.$route.name);
-    // },
     errorChild(val) {
       this.error = val;
     },

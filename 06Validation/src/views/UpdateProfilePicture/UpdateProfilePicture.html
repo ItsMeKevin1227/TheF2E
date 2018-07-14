@@ -2,11 +2,35 @@
   <h1 class="title">Update Profile Picture
     <small class="subTitle">We wanna know you more!</small>
   </h1>
-  <div class="flexBox">
+  <label for="image"
+         class="flexBox">
     <i class="fas fa-images"></i>
     <p class="form">UPLOAD UP TO 3 PHOTOS
       <br>
       <span class="label">MAX SIZE: 150*150px</span>
     </p>
+  </label>
+  <div class="flexBox warning form"
+       v-if="errorMsg!==''">
+    <i class="fas fa-exclamation-triangle"></i> {{errorMsg}}
   </div>
+  <div class="flexBox"
+       v-if="images">
+    <template v-for="(item,idx) in images">
+      <div class="image"
+           :style="{ 'backgroundImage': `url('${item}')` }"
+           width="200">
+        <span class="deleteImg"
+              @click="deleteIt(idx)">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </div>
+    </template>
+  </div>
+  <input type="file"
+         name="image"
+         id="image"
+         @change="fileSelected"
+         style="display:none"
+         multiple>
 </div>

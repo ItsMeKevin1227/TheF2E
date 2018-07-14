@@ -14,10 +14,8 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-    border: 2px solid #000;
     border-radius: 8px;
     color: $placeholder;
-    padding: 30px 70px;
     box-sizing: border-box;
     > i {
       font-size: 54px;
@@ -26,5 +24,48 @@
       margin-left: 20px;
       line-height: 24px;
     }
+    .image {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      > span {
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: $primary;
+        text-align: center;
+        padding: 16px 0;
+        color: #fff;
+        // display: none;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+      &:hover > span {
+        // display: block;
+        opacity: 1;
+        transition: opacity 0.4s;
+      }
+    }
+    &.warning {
+      color: #fff;
+      background-color: $warning;
+      padding: 14px 0;
+      letter-spacing: 4px;
+      i {
+        font-size: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+  label.flexBox {
+    padding: 30px 70px;
+    cursor: pointer;
+    border: 2px solid #000;
   }
 }

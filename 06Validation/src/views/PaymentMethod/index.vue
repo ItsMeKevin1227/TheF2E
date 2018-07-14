@@ -12,6 +12,9 @@ export default {
       yearArr: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
     };
   },
+  beforeMount() {
+    this.$emit('error', true);
+  },
   computed: {
     isError() {
       if (this.card === '' ||
