@@ -1,0 +1,32 @@
+@import '../../assets/styles/variables.scss';
+
+.mainShape {
+  background-color: $blue-dark;
+  height: 100vh;
+  width: 40%;
+  position: relative;
+}
+
+//shape
+.square,
+.circle,
+.triangle {
+  position: absolute;
+}
+.square {
+  @include square(180px, $pink);
+  top: 15%;
+  left: 15%;
+}
+
+.circle {
+  @include circle(400px, $black);
+  top: 65%;
+  left: 20%;
+}
+
+.triangle {
+  @include triangle(70px, $white);
+  top: 40%;
+  left: 70%;
+}

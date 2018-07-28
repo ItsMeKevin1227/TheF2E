@@ -1,0 +1,25 @@
+$pink: #ff3c82;
+$blue-dark: #0027c8;
+$blue: #1469ff;
+$black: #000;
+$white: #fff;
+@mixin square($white, $color) {
+  width: $white;
+  height: $white;
+  background-color: $color;
+}
+
+@mixin circle($white, $color) {
+  width: $white;
+  height: $white;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+@mixin triangle($white, $color) {
+  width: 0;
+  height: 0;
+  border-left: $white solid transparent;
+  border-right: $white solid transparent;
+  border-bottom: $white * 1.6 solid $color;
+}

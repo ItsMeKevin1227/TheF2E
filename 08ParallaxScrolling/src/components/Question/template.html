@@ -1,0 +1,15 @@
+<div class="mainTxtWrapper">
+  <transition name="fade">
+    <div class="mainTxt"
+         v-if="show">
+      <h1>{{detail.questionNum}}</h1>
+      <h3>{{detail.title}}</h3>
+      <p class="note">{{detail.note}}</p>
+      <form>
+        <button class="myBtn"
+                v-for="item in options"
+                @click.prevent="onClick()">{{item}}</button>
+      </form>
+    </div>
+  </transition>
+</div>

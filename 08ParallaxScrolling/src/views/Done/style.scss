@@ -1,0 +1,31 @@
+@import '../../assets/styles/variables.scss';
+.text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+.text {
+  text-align: center;
+  white-space: nowrap;
+}
+
+$colors: $white, $black, $blue-dark;
+
+@for $i from 1 through 10 {
+  .triangle#{$i} {
+    @include triangle(70px, nth($colors, random(3)));
+    // transform: translate(percentage(random(100)/100)*-1,percentage(random(100)/100)*-1);
+    transform: translate(-500 - random(1000) + px, 500 + random(1000) + px)
+      rotate(random(360) + deg)
+      scale(random(3));
+  }
+}
+
+.triangle11 {
+  // position: absolute;
+  @include triangle(1500px, $blue-dark);
+  transform: rotate(45deg) translate(-2000px, 2000px);
+}

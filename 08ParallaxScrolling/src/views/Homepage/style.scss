@@ -1,0 +1,55 @@
+@import '../../assets/styles/variables.scss';
+
+.homepage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shape {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .text,
+  .circle,
+  .star {
+    position: absolute;
+  }
+  .text {
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+// 來源 : https://blog.csdn.net/wangweiscsdn/article/details/56486626
+// star
+.star {
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  border-bottom: 310px solid $pink;
+  position: relative;
+  margin-top: -30px;
+  transform-origin: 50% calc(50% + 30px);
+}
+.star:after {
+  width: 0;
+  height: 0;
+  border-left: 180px solid transparent;
+  border-right: 180px solid transparent;
+  border-top: 310px solid $pink;
+  position: absolute;
+  content: '';
+  top: 60px;
+  left: -180px;
+}
+// circle
+.circle {
+  @include circle(535px, $blue-dark);
+}
+// square
+.square {
+  @include square(450px, $black);
+}

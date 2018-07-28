@@ -1,0 +1,22 @@
+<div class="result">
+  <transition name="fade">
+    <div class="text-wrapper">
+      <div class="text">
+        <h2>Your personality type is</h2>
+        <h1>TRIANGLE </h1>
+        <Question :detail="details"
+                  :options="options"
+                  class="question">
+        </Question>
+      </div>
+    </div>
+  </transition>
+
+  <div v-for="item in 7"
+       :class="'triangle'+ item"
+       class="triangle"></div>
+  <div class="triangle8 triangle-big"></div>
+  <div class="triangle9 triangle-big"></div>
+  <div class="triangle10 triangle-big"></div>
+
+</div>

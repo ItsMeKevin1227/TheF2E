@@ -1,0 +1,14 @@
+<div class="done">
+  <transition name="fade">
+    <div class="text-wrapper">
+      <div class="text">
+        <h1>ALL DONE!</h1>
+        <h2>Keep scrolling to show the result</h2>
+      </div>
+    </div>
+  </transition>
+  <div v-for="item in 10"
+       :class="'triangle'+ item"
+       class="triangle"></div>
+  <div class="triangle11"></div>
+</div>
