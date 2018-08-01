@@ -38,9 +38,6 @@ export default {
     #000 65%,
     $background 100%
   );
-  #LevelPanel {
-    margin-left: 42px;
-    width: 300px;
-  }
+  justify-content: space-around;
 }
 </style>

@@ -4,6 +4,12 @@ export default {
   data() {
     return {
       show: false,
+      // myImg: [
+      //   require('../../../public/img/img-ship-noob.png'),
+      //   require('../../../public/img/img-ship-beginner.png'),
+      //   require('../../../public/img/img-ship-developer.png'),
+      //   require('../../../public/img/img-ship-master.png'),
+      // ],
     };
   },
   mounted() {
