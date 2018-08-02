@@ -1,43 +1,42 @@
 <template>
   <div id="app">
-    <LevelPanel/>
-    <SkillTree/>
-    <SkillPanel/>
+    <!-- <img src="./assets/logo.png"> -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-// eslint-disable-next-line
-import LevelPanel from '@/components/LevelPanel';
-// eslint-disable-next-line
-import SkillTree from '@/components/SkillTree';
-// eslint-disable-next-line
-import SkillPanel from '@/components/SkillPanel';
-
 export default {
-  name: 'app',
-  components: {
-    LevelPanel, SkillTree, SkillPanel,
-  },
+  name: 'App',
 };
 </script>
 
 <style lang="scss">
-@import './assets/styles/variables.scss';
+@import './style/_variables.scss';
+@import './style/_helpers.scss';
+body {
+  background-color: $bg;
+  font-family: 'Roboto';
+  color: $w;
+  font-size: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+button:focus {
+  outline: none;
+}
 
-#app {
-  display: flex;
-  font-family: Roboto;
-  width: 1024px;
-  height: 768px;
-  margin: 0 auto;
-  background: linear-gradient(
-    to right,
-    $background 0%,
-    #000 35%,
-    #000 65%,
-    $background 100%
-  );
-  justify-content: space-around;
+h1 {
+  font-size: 48px;
+  font-style: italic;
+  font-weight: bold;
+}
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+.remark {
+  font-size: 14px;
 }
 </style>

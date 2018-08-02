@@ -1,0 +1,202 @@
+<div class="homepage">
+  <div class="header">
+    <div class="txt">
+      <h1>FRONT-END SKILL TREE</h1>
+      <span class="sub-title">CURRENT RANK</span>
+      <transition name="fade"
+                  mode="out-in">
+        <h2 v-if="nowTxt===0"
+            key="NOOB">FRONT-END
+          <br>NOOB</h2>
+        <h2 v-else-if="nowTxt===1"
+            key="Beginner">FRONT-END
+          <br>Beginner</h2>
+        <h2 v-else-if="nowTxt===2"
+            key="Developer">FRONT-END
+          <br>Developer</h2>
+        <h2 v-else-if="nowTxt===3"
+            key="Master">FRONT-END
+          <br>Master</h2>
+      </transition>
+    </div>
+    <div class="img">
+      <img width="300"
+           :src="nowImg"
+           alt="">
+      <transition name="fade"
+                  mode="out-in">
+        <p v-if="nowTxt===0"
+           key="NOOB"
+           class='myTxt'>Welcome to aboard. Your mission is:
+          <span class="main-color">
+            Collect the resources and learn the skills to upgrade the ship.
+          </span>
+          Good luck, captain!
+        </p>
+        <p v-else-if="nowTxt===1"
+           key="Beginner"
+           class='myTxt'>
+          <strong>Congratulations! </strong>You become the
+          <span class="main-color">
+            Front-end Beginner”.
+          </span>
+          “ Keep searching the resources to upgrade to the next level.
+        </p>
+        <p v-else-if="nowTxt===2"
+           key="Developer"
+           class='myTxt'>
+          <strong>You’re doing well!</strong> Now you’re a
+          <span class="main-color">
+            “Front-end Developer”.
+          </span>
+          It’s close to complete the upgrading program.
+          <br>Next level: Front-end Master.
+        </p>
+        <p v-else-if="nowTxt===3"
+           key="Master"
+           class='myTxt'>
+          <strong>Excellent!</strong> You’re a
+          <span class="main-color">
+            “Front-end Master”
+          </span>
+          now. But a new gallery was just detected by the system. Captain, make your choice.
+        </p>
+      </transition>
+    </div>
+  </div>
+  <div class="body">
+    <div class="body-title">
+      <div class="step step-1"
+           @click.once="addItem('basic')">
+        <div class="step-img canClick">
+          <img width="100"
+               src="@/assets/img-planet-basics@2x.png"
+               alt="">
+        </div>
+      </div>
+      <div class="step step-2">
+        <div class="step-img"
+             :class="{canClick: isCategory('css')}">
+          <img width="100"
+               src="@/assets/img-planet-css@2x.png"
+               alt="">
+        </div>
+      </div>
+      <div class="step step-3">
+        <div class="step-img"
+             :class="{canClick: isCategory('js')}">
+          <img width="100"
+               src="@/assets/img-planet-js@2x.png"
+               alt="">
+        </div>
+      </div>
+      <div class="step step-4">
+        <div class="step-img"
+             :class="{canClick: isCategory('manager')}">
+          <img width="100"
+               src="@/assets/img-planet-managers@2x.png"
+               alt="">
+        </div>
+      </div>
+    </div>
+    <div class="body-content">
+      <div class="step step-1">
+        <div class="step-item"
+             :class="{canClick: isCategory('basic'), isDone: item.done, isActive: myDetail.id===item.id}"
+             v-for="(item,index) in basicLists"
+             @click="showDetail(basicLists[index])">
+          <div class="item-img">
+            <span :class="'icon-sharp-'+ item.icon + '-24px'"></span>
+          </div>
+          <div class="item-list">
+            <p>
+              <span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+            <p>
+              <span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="step step-2">
+        <div class="step-item"
+             :class="{canClick: isCategory('css'), isDone: item.done, isActive: myDetail.id===item.id}"
+             v-for="(item,index) in cssLists"
+             @click="showDetail(cssLists[index])">
+          <div class="item-img">
+            <span :class="'icon-sharp-'+ item.icon + '-24px'"></span>
+          </div>
+          <div class="item-list">
+            <p>
+              <span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+            <p>
+              <span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="step step-3">
+        <div class="step-item"
+             :class="{canClick: isCategory('js'), isDone: item.done, isActive: myDetail.id===item.id}"
+             v-for="(item,index) in jsLists"
+             @click="showDetail(jsLists[index])">
+          <div class="item-img">
+            <span :class="'icon-sharp-'+ item.icon + '-24px'"></span>
+          </div>
+          <div class="item-list">
+            <p>
+              <span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+            <p>
+              <span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="step step-4">
+        <div class="step-item"
+             :class="{canClick: isCategory('manager'), isActive: myDetail.id===item.id, isDone: item.done}"
+             v-for="(item,index) in managerLists"
+             @click="showDetail(managerLists[index])">
+          <div class="item-img">
+            <span :class="'icon-sharp-'+ item.icon + '-24px'"></span>
+          </div>
+          <div class="item-list">
+            <p>
+              <span class="icon-sharp-build-24px"></span>{{checkedLength(item.recommend)}}/{{item.recommend && item.recommend.length}}</p>
+            <p>
+              <span class="icon-sharp-filter_tilt_shift-24px"></span>{{checkedLength(item.optional)}}/{{item.optional && item.optional.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="note">
+    <!-- <pre>{{basicData}}</pre> -->
+    <div class="note-header">
+      <div class="title">
+        <span :class="'icon-sharp-'+ myDetail.icon + '-24px'"></span>
+        <h2>{{myDetail.title}}</h2>
+      </div>
+    </div>
+    <div class="note-body">
+      <div class="note-container"
+           v-if="myDetail.recommend && myDetail.recommend.length>0">
+        <div class="title">
+          <span class="icon-sharp-settings-24px"></span>
+          <p>RECOMMENDED</p>
+        </div>
+        <button class="btn"
+                v-for="(item,index) in myDetail.recommend"
+                :class="{isActive: item.checked}"
+                @click.stop="addCheck(myDetail.id, index, 'recommend')">{{item.title}}</button>
+      </div>
+      <div class="note-container"
+           v-if="myDetail.optional && myDetail.optional.length>0">
+        <div class="title">
+          <span class="icon-sharp-filter_tilt_shift-24px"></span>
+          <p>OPTIONAL</p>
+        </div>
+        <button class="btn"
+                v-for="(item,index) in myDetail.optional"
+                :class="{isActive: item.checked}"
+                @click.stop="addCheck(myDetail.id, index, 'optional')">{{item.title}}</button>
+      </div>
+    </div>
+  </div>
+</div>
